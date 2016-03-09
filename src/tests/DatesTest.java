@@ -7,6 +7,9 @@ import java.time.LocalTime;
 import java.time.Month;
 import java.time.Period;
 import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.time.temporal.TemporalAccessor;
 
 public class DatesTest implements Utils {
 
@@ -105,6 +108,71 @@ public class DatesTest implements Utils {
             print(time);
             time = time.plus(oneSecond);
         }
+        separator();
+
+        LocalDateTime datetime = LocalDateTime.now();
+        print(localdatetime.getDayOfWeek());
+        print(localdatetime.getMonth());
+        print(localdatetime.getMinute());
+        separator();
+
+        print(datetime.format(DateTimeFormatter.ISO_LOCAL_DATE));
+        print(datetime.format(DateTimeFormatter.ISO_LOCAL_TIME));
+        print(datetime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+        print(datetime.format(DateTimeFormatter.ISO_DATE_TIME));
+        print(datetime.format(DateTimeFormatter.BASIC_ISO_DATE));
+        print(datetime.format(DateTimeFormatter.ISO_DATE));
+        print(datetime.format(DateTimeFormatter.ISO_TIME));
+        print(datetime.format(DateTimeFormatter.ISO_WEEK_DATE));
+        separator();
+
+        DateTimeFormatter shortFormat = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
+        DateTimeFormatter mediumFormat = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);
+        DateTimeFormatter longFormat = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG);
+        DateTimeFormatter fullFormat = DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL);
+
+        datetime = LocalDateTime.now();
+        print(datetime.format(shortFormat));
+        print(datetime.format(mediumFormat));
+        print(datetime.format(longFormat));
+        print(datetime.format(fullFormat));
+        separator();
+
+        date = LocalDate.now();
+        print(date.format(shortFormat));
+        print(shortFormat.format(date));
+        print(date.format(mediumFormat));
+        print(mediumFormat.format(date));
+        print(date.format(longFormat));
+        print(longFormat.format(date));
+        print(date.format(fullFormat));
+        print(fullFormat.format(date));
+        separator();
+
+        print(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT).format(LocalDateTime.now()));
+        print(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM).format(LocalDateTime.now()));
+        separator();
+
+        DateTimeFormatter dateTimeFormatter;
+        datetime = LocalDateTime.now();
+
+        dateTimeFormatter = DateTimeFormatter.ofPattern("MMM");
+        print(dateTimeFormatter.format(datetime));
+        dateTimeFormatter = DateTimeFormatter.ofPattern("MMMM, YYYY");
+        print(dateTimeFormatter.format(datetime));
+        dateTimeFormatter = DateTimeFormatter.ofPattern("MMMM dd, yyyy, hh:mm:ss am");
+        print(dateTimeFormatter.format(datetime));
+        separator();
+
+        String myDate = "2016, marzo, 04, 5:54:14";
+        DateTimeFormatter myDateTimeFormatter = DateTimeFormatter.ofPattern("yyyy, MMMM, dd, h:mm:ss");
+        TemporalAccessor temporalAccessor = myDateTimeFormatter.parse(myDate);
+        print(temporalAccessor);
+
+        LocalDate myLocalDate = LocalDate.parse("2016, marzo, 04", DateTimeFormatter.ofPattern("yyyy, MMMM, dd"));
+        print(myLocalDate);
+        LocalTime myLocalTime = LocalTime.parse("05:54");
+        print(myLocalTime);
         separator();
 
 
