@@ -1,0 +1,35 @@
+01-G
+02-ACD
+03-BCE
+04-A -> B -> LA PREGUNTA ESTA MAL
+05-D -> F -> para utilizar == los dos objectos deben ser del mismo tipo o uno heredar del otro
+06-B
+07-BDE
+08-ADE
+09-C
+10-F
+11-E
+12-A
+13-F
+14-AC
+15-EF -> CEF -> Error no revizar bien respuestas
+16-C
+17-F
+18-ACDE
+19-BC
+20-D
+21-C
+22-D
+23-A
+24-C
+25-D
+26-ABC -> ABD -> Autoboxing, Integer a
+27-B
+28-DF
+29-D
+30-F
+31-B
+32-E
+33-B
+
+29/33
