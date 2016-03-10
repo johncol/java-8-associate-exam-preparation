@@ -37,14 +37,7 @@ public class Strings {
         System.out.println(s.substring(s.indexOf('m')));
 
         System.out.println("  aNImal  ".trim().toLowerCase().replace('a', 'A'));
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
+        System.out.println(new StringBuilder("a").equals(new StringBuilder("a")));
 
     }
 
